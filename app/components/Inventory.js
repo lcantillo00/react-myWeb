@@ -5,10 +5,12 @@ import AddProdForm from './AddProdForm';
 
 class Inventory extends React.Component{
 
+
     render(){
         return(
             <div>
-                <AddProdForm/>
+
+                <AddProdForm addProduct={this.props.addProduct}/>
             </div>
 
         );

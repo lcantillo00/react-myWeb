@@ -11,22 +11,39 @@ import Order from './Order';
 
 
 class App extends React.Component {
+    constructor(props){
+        super(props);
+         this.addProduct=this.addProduct.bind(this);
+
+
+    }
+    addProduct(product){
+        // const products={...this.state.products};
+        const timesStamp=Date.now();
+        products[`product-${timesStamp}`]=product;
+        this.setState({products})
+
+    }
   render() {
     return (
-      <Router>
-        <div className='container'>
-          <Nav />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/order' component={Order} />
+        <div>
+            <Router>
+              <div className='container'>
+                <Nav />
+                <Switch>
+                  <Route exact path='/' component={Home} />
+                  <Route exact path='/order' component={Order} />
 
-            <Route path='/inventory' component={Inventory} />
-            {/* <Route render={function() {
-              return <p>Not Found</p>;
-            }} /> */}
-          </Switch>
+                  <Route path='/inventory' component={Inventory} />
+                  {/* <Route render={function() {
+                    return <p>Not Found</p>;
+                  }} /> */}
+                </Switch>
+              </div>
+            </Router>
+
         </div>
-      </Router>
+
     );
   }
 }
